@@ -1,0 +1,7 @@
+---
+adventure:
+  title: "MissM to space!"
+  crew:
+    - name: "MissM"
+      role: "Captain"
+      personality: "Fearless"

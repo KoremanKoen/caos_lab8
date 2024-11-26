@@ -1,0 +1,72 @@
+#!/usr/bin/python3
+
+import subprocess
+
+def checkConfig(configuration, command):
+    if(command in configuration):
+        return True
+    return False
+
+def getConfig():
+    try:
+        config = subprocess.check_output(["cat", "settings.yml"], text=True)
+        print("Config loaded, checking config...")
+        return config
+    except Exception as e:
+        print("Can't load configfile")
+        return 0
+
+def executeCommand(command, expectedResult):
+    try:
+        ans = subprocess.check_output(command, text=True)
+        if (expectedResult in ans):
+            return True
+        return False
+    except:
+        return False
+
+
+def program():
+    print("#" * 40)
+    print("Starting program")
+    print("Rocketship is ready for launch...")
+    
+    config = getConfig()
+    if (checkConfig(config, "command: launch") & checkConfig(config, "interrupt: none")):
+        _=((()==())+(()==()));__=(((_<<_)<<_)*_);___=('c%'[::(([]!=[])-(()==()))])*(_<<_)%((((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))),(((_<<_)<<_)+((_<<_)*_)),(__+(((_<<_)<<_)+(_*_))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(_+(()==()))))),(__+(((_<<_)<<_)+_)),(__+(((_<<_)<<_)+_)))
+        print("Config check OK - KEY1: " + ___)
+
+    command = ["pwd"]
+    if(executeCommand(command, "/empire_koenk")):
+        print("Working in the correct folder, checking for funnylib requirement...")
+        command = ["ps"]
+        if(executeCommand(command, "funnylib")):
+            _=((()==())+(()==()));__=(((_<<_)<<_)*_);___=('c%'[::(([]!=[])-(()==()))])*(_<<_)%((((_<<_)<<_)+(((_<<_)*_)+((_*_)+_))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))),(__+(((_<<_)<<_)+(_*_))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+_))),(((_<<_)<<_)+(((_<<_)*_)+(()==()))),(((_<<_)<<_)+(((_<<_)*_)+(()==()))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))))
+            print("Funnylib is running- KEY2: " + ___)
+
+    command = ["ps"]
+    if(not executeCommand(command, "oldlib")):
+        _=((()==())+(()==()));__=(((_<<_)<<_)*_);___=('c%'[::(([]!=[])-(()==()))])*(_<<_)%((__+(((_<<_)<<_)+((_*_)+_))),(__+(((_<<_)<<_)+(()==()))),(__+(((_<<_)<<_)+(_*_))),(__+(((_<<_)<<_)+(_+(()==())))),(__+(((_<<_)<<_)+(()==()))),(((_<<_)<<_)+(((_<<_)*_)+(_*_))),(__+(((_<<_)<<_)+(_+(()==())))),(__+(((_<<_)<<_)+(()==()))))
+        print("oldlib is not running- KEY3: " + ___)
+
+    command = ["whoami"]
+    if(executeCommand(command, "MissM")):
+        print("User is ok - checking for groups.")
+        command = ["groups"]
+        if(executeCommand(command, "Rocketship")):
+            _=((()==())+(()==()));__=(((_<<_)<<_)*_);___=('c%'[::(([]!=[])-(()==()))])*(_<<_)%((__+(((_<<_)<<_)+(()==()))),(((_<<_)<<_)+(((_<<_)*_)+(()==()))),(__+(((_<<_)<<_)+(_+(()==())))),(((_<<_)<<_)+(((_<<_)*_)+(()==()))),(__+(((_<<_)<<_)+(_+(()==())))),(__+(((_<<_)<<_)+_)),(((_<<_)<<_)+((_<<_)*_)),(__+(((_<<_)<<_)+(_+(()==())))))
+            print("Group security is ok KEY4: " + ___)
+    
+    command = ["stat", "settings.yml"]
+    if(executeCommand(command, "Access: (0660")):
+        _=((()==())+(()==()));__=(((_<<_)<<_)*_);___=('c%'[::(([]!=[])-(()==()))])*(_<<_)%((((_<<_)<<_)+(((_<<_)*_)+(()==()))),(__+(((_<<_)<<_)+(_*_))),(__+(((_<<_)<<_)+((_*_)+(()==())))),(((_<<_)<<_)+(((_<<_)*_)+(()==()))),(((_<<_)<<_)+(((_<<_)*_)+((_<<_)+(()==())))),(__+(((_<<_)<<_)+(_+(()==())))),(__+(((_<<_)<<_)+((_*_)+_))),(((_<<_)<<_)+(((_<<_)*_)+((_*_)+(()==())))))
+        print("Config permissions is ok KEY5: " + ___)
+
+    print("#", * 40)
+    print("If all checks are OK, MissM is ready for a once in a lifetime adventure!")
+try:
+    program()
+except KeyboardInterrupt:
+    print("\n")
+    print("#" * 40)
+    print("Quitting program.")
